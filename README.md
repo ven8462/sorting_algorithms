@@ -1,1 +1,1 @@
-# https://github.com/ven8462/sorting_algorithms.git
+# 0x1B. C - Sorting algorithms & Big O

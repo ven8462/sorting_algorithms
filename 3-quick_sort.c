@@ -2,7 +2,7 @@
 
 /**
 * quick_sort - sorts an array of integers using quick sort
-*  with lomutu partition scheme
+* with lomutu partition scheme
 * @array: the array to be sorted
 * @size: the size of the array
 *
@@ -81,4 +81,20 @@ void recursive_sort(int *array, size_t low, size_t high, size_t size)
 		if (pivot < high)
 			recursive_sort(array, pivot + 1, high, size);
 	}
+}
+/**
+* swap - swaps two elements of an array
+* @a: first element
+* @b: second element
+*
+* Return: nothing
+*/
+
+void swap(int *a, int *b)
+{
+	int temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }

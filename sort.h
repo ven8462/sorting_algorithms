@@ -28,6 +28,6 @@ void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void swap(int *a, int *b);
 void quick_sort(int *array, size_t size);
-int partition(int * array, size_t low, size_t high, size_t size);
+int partition(int *array, size_t low, size_t high, size_t size);
 void recursive_sort(int *array, size_t high, size_t low, size_t size);
 #endif

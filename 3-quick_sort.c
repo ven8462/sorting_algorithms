@@ -29,37 +29,28 @@ void quick_sort(int *array, size_t size)
 */
 int partition(int *array, size_t low, size_t high, size_t size)
 {
-	/* The pivot is the rightmost element */
 	int pivot = array[high];
+	size_t i = low;
+	size_t j;
 
-	/* Initialize i and store the index of the smaller element */
-	size_t i = low - 1;
-
-	/* Iterate over the array from low to high */
-	size_t j = low;
-
-	while (j <= high - 1)
+	for (j = low; j <= high - 1; j++)
 	{
-		if (array[j] <= pivot)
+		if (array[j] < pivot)
 		{
-			i++;
-			/* Swap the elements at i and j */
-			swap(&array[i], &array[j]);
-			/* Print if i and j are not pointing at the same element */
 			if (i != j)
+			{
+				swap(&array[i], &array[j]);
 				print_array(array, size);
+			}
+			i++;
 		}
-		j++;
 	}
-
-	/* Swap the pivot with the element at index i+1 */
-	swap(&array[i + 1], &array[high]);
-	/* Print if i+1 and high are not pointing at the same element */
-	if (i + 1 != high)
+	if (pivot != array[i])
+	{
+		swap(&array[i], &array[high]);
 		print_array(array, size);
-
-	/* Return the final index of the pivot */
-	return (i + 1);
+	}
+	return (i);
 }
 /**
 * recursive_sort - recursively sorts the array

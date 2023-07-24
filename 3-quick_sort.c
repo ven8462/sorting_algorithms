@@ -45,8 +45,11 @@ int partition(int *array, size_t low, size_t high, size_t size)
 			i++;
 		}
 	}
-	swap(&array[i], &array[high]);
-	print_array(array, size);
+	if (pivot != array[i])
+	{
+		swap(&array[i], &array[high]);
+		print_array(array, size);
+	}
 	return (i);
 }
 /**
@@ -64,10 +67,8 @@ void recursive_sort(int *array, size_t low, size_t high, size_t size)
 	if (low < high)
 	{
 		pivot = partition(array, low, high, size);
-
 		if (pivot > 0 && pivot > low)
 			recursive_sort(array, low, pivot - 1, size);
-
 		if (pivot < high)
 			recursive_sort(array, pivot + 1, high, size);
 	}

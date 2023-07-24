@@ -16,18 +16,18 @@ void selection_sort(int *array, size_t size)
 
 	if (size < 2 || array == NULL)
 		return;
-    /*loop through the elements of the array*/
+	/*loop through the elements of the array*/
 	for (i = 0; i < size - 1; i++)
 	{
-        /* set the element at index 0 to be the min value*/
+		/* set the element at index 0 to be the min value*/
 		min = i;
-        /*loop through to compare it to the other elements*/
+		/*loop through to compare it to the other elements*/
 		for (j = i + 1; j < size; j++)
 		{
-            /*if the min is > the unsorted value, swap*/
+			/*if the min is > the unsorted value, swap*/
 			if (array[min] > array[j])
 			{
-            /*if current min is > than the value, then the value is the new min*/
+				/*if current min is > than the value, then the value is the new min*/
 				min = j;
 			}
 		}

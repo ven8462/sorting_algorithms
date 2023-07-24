@@ -32,34 +32,34 @@ int partition(int *array, size_t low, size_t high, size_t size)
 	/* The pivot is the rightmost element */
 	int pivot = array[high];
 
-	/* Scanning array from start and swap as needed */
-	size_t i = low;
+	/* Initialize i and store the index of the smaller element */
+	size_t i = low - 1;
 
-	while (i < high)
+	/* Iterate over the array from low to high */
+	size_t j = low;
+
+	while (j <= high - 1)
 	{
-		if (array[i] <= pivot)
+		if (array[j] <= pivot)
 		{
-			/* Swap the elements at low and i */
-			swap(&array[low], &array[i]);
-			/* Print if low and i are not pointing at the same element */
-			if (low != i)
+			i++;
+			/* Swap the elements at i and j */
+			swap(&array[i], &array[j]);
+			/* Print if i and j are not pointing at the same element */
+			if (i != j)
 				print_array(array, size);
-
-					/* Always increment low after doing a swap */
-					low++;
 		}
-
-		/* Always increment i after each check */
-		i++;
+		j++;
 	}
 
-	/* Finally, swap the pivot to its final place */
-	swap(&array[low], &array[high]);
-	if (low != high)
+	/* Swap the pivot with the element at index i+1 */
+	swap(&array[i + 1], &array[high]);
+	/* Print if i+1 and high are not pointing at the same element */
+	if (i + 1 != high)
 		print_array(array, size);
 
 	/* Return the final index of the pivot */
-	return (low);
+	return (i + 1);
 }
 /**
 * recursive_sort - recursively sorts the array
